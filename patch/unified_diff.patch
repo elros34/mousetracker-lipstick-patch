@@ -1,0 +1,51 @@
+diff -ru /usr/share/lipstick-jolla-home-qt5/compositor.qml /usr/share/lipstick-jolla-home-qt5/compositor.qml
+--- /usr/share/lipstick-jolla-home-qt5/compositor.qml	2020-04-28 17:49:05.393236000 +0200
++++ /usr/share/lipstick-jolla-home-qt5/compositor.qml	2020-08-23 23:46:51.928063884 +0200
+@@ -21,6 +21,7 @@
+ import Sailfish.Silica.private 1.0
+ import Sailfish.Lipstick 1.0
+ import com.jolla.lipstick 0.1
++import com.mousetracker 1.0
+ 
+ import "layers"
+ import "launcher"
+@@ -1742,6 +1743,39 @@
+         }
+     }
+ 
++    MouseTracker {
++        id: mouseTracker
++        target: root
++        onMiddleButtonPressed: {
++            if (root.appLayer.active || root.homeLayer.events.active)
++                root.goToSwitcher(true)
++            else
++                root.goToEvents()
++        }
++        // only wheel events are delivered when screen is locked
++//        onWheelRolled: {
++//            if (lipstickSettings.lockscreenVisible) {
++//                console.log("unlock from wheel event")
++//                root.unlock()
++//                //FIXME: it's not really unlocked until touch event is generated
++//            }
++//        }
++    }
++
++    // cursor
++    Rectangle {
++        width: 20 * Theme.pixelRatio
++        height: width
++        radius: width/2
++        visible: mouseTracker.mouseActive && !lipstickSettings.lockscreenVisible
++        x: mouseTracker.mouseX - width/2
++        y: mouseTracker.mouseY - height/2
++        z: 20
++        opacity: 0.7
++        color: mouseTracker.pressed ? "#828282" : "white"
++        border.color: "black"
++    }
++
+     Rectangle {
+         id: dimmingRectangle
+         anchors.fill: parent

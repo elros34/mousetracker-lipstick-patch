@@ -1,0 +1,9 @@
+{
+    "name": "Mouse cursor",
+    "description": "Adds mouse cursor to lipstick. Requires patched evdevmouse plugin for correct landscape coordinates. Middle button switch to homescreen/events.",
+    "category": "homescreen",
+    "infos": {
+        "maintainer": "elros34"
+    }
+}
+
