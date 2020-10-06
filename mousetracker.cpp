@@ -24,6 +24,10 @@ void MouseTracker::setTarget(QObject *target)
 
 bool MouseTracker::eventFilter(QObject *watched, QEvent *e)
 {
+    if (e->type() != QEvent::SockAct && e->type() != QEvent::Timer &&
+        e->type() != QEvent::UpdateRequest && e->type() != QEvent::MetaCall)
+        qDebug() << watched << "type: " << e->type();
+
     if (watched != m_target)
         return false;
 
