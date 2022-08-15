@@ -53,7 +53,7 @@ fi
 
 %files
 %defattr(644,root,root,-)
-%{_libdir}/qt5/qml/com/mousetracker/libmousetracker.so
-%{_libdir}/qt5/qml/com/mousetracker/qmldir
+%{_libdir}/qt5/qml/com/mousetrackeritem/libmousetracker.so
+%{_libdir}/qt5/qml/com/mousetrackeritem/qmldir
 %{_datadir}/patchmanager/patches/%{name}
 

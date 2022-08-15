@@ -4,7 +4,7 @@ QT += qml quick
 CONFIG += plugin c++11
 
 TARGET = $$qtLibraryTarget($$TARGET)
-uri = com.mousetracker
+uri = com.mousetrackeritem
 
 OBJECTS_DIR = .obj
 MOC_DIR = .moc

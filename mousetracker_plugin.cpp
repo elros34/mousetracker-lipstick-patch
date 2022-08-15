@@ -5,7 +5,7 @@
 
 void MousetrackerPlugin::registerTypes(const char *uri)
 {
-    // @uri com.mousetracker
-    qmlRegisterType<MouseTracker>(uri, 1, 0, "MouseTracker");
+    // @uri com.mousetrackeritem
+    qmlRegisterType<MouseTracker>(uri, 1, 0, "MouseTrackerItem");
 }
 
